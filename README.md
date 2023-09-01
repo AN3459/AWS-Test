@@ -1,4 +1,3 @@
-![ami_lifecycle](https://github.com/AN3459/AWS-Test/assets/77662211/574d23f3-6e2e-46f3-9354-0230ee81c628)# AWS-Test
 
 ## 计算
 ---
@@ -17,7 +16,12 @@
   + AMI可以在同一个AWS中复制，也可以复制到其他AWS区域
   + AMI生命周期![ami_lifecycle](https://github.com/AN3459/AWS-Test/assets/77662211/94f86e9d-4423-4757-b065-074542c52ec1)
   + 注销某个AMI之后，就无法用该AMI创建新的实例，但是已经用该AMI创建的实例不受影响
-  + AMI分为两种，一种是Amazon EBS-backed AMI，从这个AMI启动的实例的根设备时从EBS快照创建出来的EBS卷，另一种是Amazon 实例存储支持的 AMI，从这种AMI创建出来的根设备是存储在S3中的一个模板创建出来的实例存储卷
+  + AMI分为两种，一种是Amazon EBS-backed AMI，从这个AMI启动的实例的根设备时从EBS快照创建出来的EBS卷，这种实例的启动时间通常不到1分钟，根设备的大小限制为64TiB
+  + 另一种是Amazon 实例存储支持的 AMI，从这种AMI创建出来的根设备是存储在S3中的一个模板创建出来的实例存储卷
+| 特征 | Amazon EBS-backed AMI | 由 Amazon 实例存储支持的 AMI |
+| ------- | ------- | ------- |
+| 实例的启动时间 | 通常不到 1 分钟 |通常不到 5 分钟 |
+| 单元格3 | 单元格4 |
 
 ## 分析
 ---
