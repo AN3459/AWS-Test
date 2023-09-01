@@ -1,4 +1,4 @@
-# AWS-Test
+![ami_lifecycle](https://github.com/AN3459/AWS-Test/assets/77662211/574d23f3-6e2e-46f3-9354-0230ee81c628)# AWS-Test
 
 ## 计算
 ---
@@ -9,9 +9,15 @@
 ---
 **AWS EC2**
 - 概念：AWS Batch可以运行任何规模的批处理任务
-
-
-
+- 存储：
+  + 对操作系统和数据分别使用单独的EBS卷，可以确保数据在实例终止后保留
+  + 
+- Amazon Machine Images (AMI)：
+  + 一个AMI可以包含一个或者多个EBS快照，EBS快照是快照的组成部分之一，比如AMI中可以包含操作系统的EBS，也可以包含应用程序的EBS，通过该AMI创建出来的EC2实例就会包含这些内容
+  + AMI可以在同一个AWS中复制，也可以复制到其他AWS区域
+  + AMI生命周期![ami_lifecycle](https://github.com/AN3459/AWS-Test/assets/77662211/94f86e9d-4423-4757-b065-074542c52ec1)
+  + 注销某个AMI之后，就无法用该AMI创建新的实例，但是已经用该AMI创建的实例不受影响
+  + AMI分为两种，一种是Amazon EBS-backed AMI，从这个AMI启动的实例的根设备时从EBS快照创建出来的EBS卷，另一种是Amazon 实例存储支持的 AMI，从这种AMI创建出来的根设备是存储在S3中的一个模板创建出来的实例存储卷
 
 ## 分析
 ---
