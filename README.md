@@ -13,16 +13,14 @@
   + 
 - Amazon Machine Images (AMI)：
   + 一个AMI可以包含一个或者多个EBS快照，EBS快照是快照的组成部分之一，比如AMI中可以包含操作系统的EBS，也可以包含应用程序的EBS，通过该AMI创建出来的EC2实例就会包含这些内容
-  + AMI可以在同一个AWS中复制，也可以复制到其他AWS区域
+  + AMI可以在同一个AWS中复制，也可以复制到其他AWS区域，两种AMI均可复制，可以复制带加密快照的AMI，并在复制过程中更改加密状态
   + AMI生命周期![ami_lifecycle](https://github.com/AN3459/AWS-Test/assets/77662211/94f86e9d-4423-4757-b065-074542c52ec1)
   + 注销某个AMI之后，就无法用该AMI创建新的实例，但是已经用该AMI创建的实例不受影响
   + AMI分为两种，一种是Amazon EBS-backed AMI，从这个AMI启动的实例的根设备时从EBS快照创建出来的EBS卷，这种实例的启动时间通常不到1分钟，根设备的大小限制为64TiB
   + 另一种是Amazon 实例存储支持的 AMI，从这种AMI创建出来的根设备是存储在S3中的一个模板创建出来的实例存储卷
-  + 默认情况下，EBS根卷的DeleteOnTermination为true，也就是实例终止之后就会删除
-  + 仅支持 io2 EBS Block Express
-  + 
-
- 
+  + 默认情况下，EBS根卷的DeleteOnTermination为true，也就是实例终止之后就会删除，EBS根卷仅支持 io2 EBS Block Express
+  + 仅可以修改AMI的部分属性，例如AMI的描述和共享属性，如果要更改AMI的内容，则要创建新的AMI
+  + 可以用复制加密快照到加密快照，但是不能复制到未加密快照，可以复制未加密快照到未加密快照或加密快照
 
 | 特征 | Amazon EBS-backed AMI | 由 Amazon 实例存储支持的 AMI |
 | ------- | ------- | ------- |
@@ -35,6 +33,8 @@
 | AMI 创建/捆绑 | 使用单一命令/调用 | 需要安装和使用 AMI 工具 |
 | 停止状态 | 可以处于停止状态。即使实例停止未运行，根卷也会保留在 Amazon EBS 中 | 不可置于停止状态；实例只能处于正在运行或已终止的状态 |
 
+
+- 
 
 
 ## 分析
